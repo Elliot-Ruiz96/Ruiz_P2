@@ -7,8 +7,8 @@ volatile uint16_t rxIndex; /* Index of the memory to save new arrived data. */
 
 void UART_Config(void){
 	uart_config_t config;
-	BOARD_InitPins();
 	BOARD_BootClockRUN();
+	BOARD_InitPins();
 	UART_GetDefaultConfig(&config);
 	config.baudRate_Bps = 115200U;
 	config.enableTx = true;
