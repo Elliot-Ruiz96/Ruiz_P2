@@ -1,4 +1,10 @@
+#include <string.h>
+
 #include "Implementacion.h"
+#include "I2C.h"
+#include "PIT.h"
+#include "Push_Buttons.h"
+#include "RGB.h"
 
 uint8_t g_Button2 = 0;
 uint8_t g_Button3 = 0;
@@ -14,6 +20,9 @@ void PORTC_IRQHandler(void){
     g_Button3 = true;
     SDK_ISR_EXIT_BARRIER;
 }
+
+uint8_t Msg1[] =
+		"\n Menu: \n 1. Configurar hora: \n 2. Configurar fecha: \n 3. Leer fecha: \n 4. Leer hora:";
 
 int main(void) {
 	PIT_Config();
