@@ -1,6 +1,7 @@
 #include "PIT.h"
 #include "Push_Buttons.h"
 #include "RGB.h"
+#include "UART.h"
 
 uint8_t g_Button2 = 0;
 uint8_t g_Button3 = 0;
@@ -18,9 +19,10 @@ void PORTC_IRQHandler(void){
 }
 
 int main(void) {
-	PIT_Config();
-	LED_Config();
 	Buttons_Config();
+	LED_Config();
+	PIT_Config();
+	UART_Config();
 	while(1){
 	}
     return 0;
