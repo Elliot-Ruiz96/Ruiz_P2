@@ -1,7 +1,5 @@
 #include "Implementacion.h"
 
-uint8_t Msg1[] =
-		"\n Menu: \n 1. Configurar hora: \n 2. Configurar fecha: \n 3. Leer fecha: \n 4. Leer hora:";
 uint8_t Msg2[] =
 		"\r\n Ingresa la hora (hh:mm:ss): \n";
 uint8_t Msg3[] =
@@ -14,11 +12,11 @@ uint8_t Msg5[] =
 void Program_Init(){
 	Send_Data();
 	if(Get_Data() == '1'){
-		if(Get_Gata() == 13){
+		if(Get_Data() == 13){
 			// Configuracion de hora
 			printf("Enter key is pressed\n");
 			UART_WriteBlocking(UART0, Msg2, sizeof(Msg2) / sizeof(Msg2[0]));
-			set_data();
+			Set_Data();
 		}
 	}
 	if(Get_Data() == '2'){
