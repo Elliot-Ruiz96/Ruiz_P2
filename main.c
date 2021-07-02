@@ -1,9 +1,6 @@
-<<<<<<< Updated upstream
-=======
 #include <string.h>
 
 #include "I2C.h"
->>>>>>> Stashed changes
 #include "PIT.h"
 #include "Push_Buttons.h"
 #include "RGB.h"
@@ -36,14 +33,11 @@ uint8_t Msg5[] =
 
 int main(void) {
 	PIT_Config();
-<<<<<<< Updated upstream
 	LED_Config();
 	Buttons_Config();
-=======
 	UART_Config();
 	I2C_Init();
 	UART_WriteBlocking(UART0, Msg1, sizeof(Msg1) / sizeof(Msg1[0]));
->>>>>>> Stashed changes
 	while(1){
 		Send_Data();
 		if(Get_Data() == '1'){
@@ -62,31 +56,23 @@ int main(void) {
 				Set_Data();
 			}
 		}
-		        if(get_data() == '3'){
-		                 if(get_data() == 13){
-		                 //Mostrar fecha
-		                 printf("Enter key is pressed\n");
-		                 UART_WriteBlocking(UART0, string4, sizeof(string4) / sizeof(string4[0]));  // muestra la opcion de cambio de frecuencia
+		if(Get_Data() == '3'){
+			if(Get_Data() == 13){
+				//Mostrar fecha
+				printf("Enter key is pressed\n");
+				UART_WriteBlocking(UART0, Msg4, sizeof(Msg4) / sizeof(Msg4[0]));  // muestra la opcion de cambio de frecuencia
+				Set_Data();
+			}
+		}
 
-		                 //Mostrar fecha
-
-
-		                  set_data();
-		              }
-		         }
-
-		        if(get_data() == '4'){
-		                 if(get_data() == 13){
-		                 //Mostrar hora
-		                 printf("Enter key is pressed\n");
-		                 UART_WriteBlocking(UART0, string5, sizeof(string5) / sizeof(string5[0]));  // muestra la opcion de cambio de frecuencia
-
-		                 //Mostrar hora
-
-
-
-		                  set_data();
-		              }
-	}
+		if(Get_Data() == '4'){
+			if(Get_Data() == 13){
+				//Mostrar hora
+				printf("Enter key is pressed\n");
+				UART_WriteBlocking(UART0, Msg5, sizeof(Msg5) / sizeof(Msg5[0]));  // muestra la opcion de cambio de frecuencia
+				Set_Data();
+			}
+		}
     return 0;
+	}
 }
