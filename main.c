@@ -1,3 +1,4 @@
+#include "I2C.h"
 #include "PIT.h"
 #include "Push_Buttons.h"
 #include "RGB.h"
@@ -23,6 +24,7 @@ int main(void) {
 	LED_Config();
 	PIT_Config();
 	UART_Config();
+	I2C_Init();
 	while(1){
 	}
     return 0;
